@@ -8,13 +8,13 @@ public class PlayerMovement : MonoBehaviour
 {
     CharacterController characterController;
 
-    public float runSpeed = 16f;
-    public float jogSpeed = 6f;
     float speed = 6.0f;
-    public float jumpSpeed = 5f;
-    public float gravity = 10.0f;
+    public float jumpSpeed = 1f;
+    public float gravity = 5.0f;
+    public GameObject playermodel;
 
-private Vector3 moveDirection = Vector3.zero;
+    private Vector3 moveDirection = Vector3.zero;
+    private Vector3 LookatDirection = Vector3.zero;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,23 +29,14 @@ private Vector3 moveDirection = Vector3.zero;
     }
 
     void Locomotion()
-    {
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            speed = runSpeed;
-        }
-        else
-        {
-            speed = jogSpeed;
-        }
-
+    {   
         if (characterController.isGrounded)
         {
             moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
             moveDirection = transform.TransformDirection(moveDirection);
             moveDirection *= speed;
 
-            //Jumping/Crouching
+            //Jumping
             if (Input.GetButton("Jump"))
             {
                 moveDirection.y = jumpSpeed;
