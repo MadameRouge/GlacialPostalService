@@ -32,25 +32,21 @@ public class NewPlayerMovement : MonoBehaviour
         //Using Checklayers you need to check each time the player moves what type of floor they are on. Then inside a function lets say. Have an if statement for each one changing your speed.
         if (Input.GetKey(KeyCode.W))
         {
-            //groundCheck();
             rb.velocity = new Vector3(-speed, rb.velocity.y, 0);
         }
 
         if (Input.GetKey(KeyCode.S))
         {
-            //groundCheck();
             rb.velocity = new Vector3(speed, rb.velocity.y, 0);
         }
 
         if (Input.GetKey(KeyCode.A))
         {
-            //groundCheck();
             rb.velocity = new Vector3(0, rb.velocity.y, -speed);
         }
 
         if (Input.GetKey(KeyCode.D))
         {
-            //groundCheck();
             rb.velocity = new Vector3(0, rb.velocity.y, speed);
         }
 
