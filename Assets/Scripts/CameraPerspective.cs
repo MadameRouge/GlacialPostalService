@@ -7,19 +7,18 @@ public class CameraPerspective : MonoBehaviour
     public GameObject Camera1;
     public GameObject Camera2;
 
-    private bool CameraOn;
-    // Start is called before the first frame update
+    public bool CameraOn;
     void Start()
     {
         CameraOn = true;
     }
 
-    // Update is called once per frame
     void Update()
     {
         CameraSwap();
     }
     
+    //If player presses Q, the other camera will become active depending on which one is currently active.
     private void CameraSwap()
     {
         if (Input.GetKeyDown(KeyCode.Q) && CameraOn == true)
